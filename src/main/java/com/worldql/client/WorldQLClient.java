@@ -57,7 +57,7 @@ public class WorldQLClient extends JavaPlugin {
         }
 
         handshakeSocket.send(myIP.getBytes(ZMQ.CHARSET), zmq.ZMQ.ZMQ_DONTWAIT);
-        byte[] reply = handshakeSocket.recv(zmq.ZMQ.ZMQ_DONTWAIT);
+        byte[] reply = handshakeSocket.recv(0);
         String assignedZeroMQPort = new String(reply, ZMQ.CHARSET);
         zmqPortClientId = Integer.parseInt(assignedZeroMQPort);
 
